@@ -1,0 +1,73 @@
+.wrapper {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #16141A;
+}
+
+#cyberpunk {
+	margin: 0;
+	padding: 0;
+	letter-spacing: 10px;
+	filter: drop-shadow(0 0 20px hsla(320, 40%, 60%, 0.8));
+	font-size: 64px;
+	position: relative;
+	z-index: 1;
+	font-family: 'Neon Machine', sans-serif;
+	font-style: italic;
+	overflow: visible;
+}
+
+.text {
+
+	&:nth-child(1) {
+		opacity: 0;
+	}
+
+	&:nth-child(2) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.9;
+
+		color: #F6F243;
+		clip-path: inset(40% -20% 40% -20%);
+		// animation: random1 1000ms steps(1) alternate infinite;
+	}
+
+	&:nth-child(3) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.9;
+
+		color: #6FFF63;
+		clip-path: inset(0% -20% 60% 0%);
+		animation: random1 1000ms steps(1) alternate infinite;
+	}
+
+	&:nth-child(4) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.9;
+
+		color: #C907FF;
+		clip-path: inset(60% -20% -10% 0%);
+		animation: random2 1000ms steps(1) alternate infinite;
+	}
+}
+
+.thing-1 {
+	position: absolute;
+	left: 0;
+	top: 20%;
+	height: 50%;
+	width: 100%;
+	background-color: hsl(225, 100%, 40%);
+	z-index: -1;
+	animation: random-clip-1 20s steps(1) infinite;
+}
+
