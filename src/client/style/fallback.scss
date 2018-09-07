@@ -1,0 +1,10 @@
+@import './settings';
+@import '~bourbon/app/assets/stylesheets/bourbon';
+@import '~ljd-njord/src/njord';
+
+/**
+ * Hides fallback content on JS-enabled devices
+ */
+.js .fallback {
+	@extend %sr-only;
+}

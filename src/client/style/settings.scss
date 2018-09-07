@@ -1,0 +1,63 @@
+/**
+ * Configuration
+ *
+ * Basic site wide variables. All variables used cross-modules should be placed here. Please use existing CSS naming conventions  when naming variables in CSS (lowercase, dashes - see http://cssguidelin.es/#naming-conventions).
+ *
+ * @section Config
+ * @author ljd
+ */
+
+// Spacers
+$base-unit:                10px;
+$spacer-sizes:             ($base-unit, $base-unit * 2, $base-unit * 5, $base-unit * 10, $base-unit * 15, $base-unit * 20);
+@function spacer-size($index) {
+	@return nth($spacer-sizes, $index + 1);
+}
+
+// Type & rythm
+$em-base:                  16px;
+$line-height:              1.4;
+$type-sizes:               (12px, $em-base, 20px, 25px, 30px, 45px, 64px, 80px);
+
+@function px-to-em($size, $base: $em-base) {
+	@return $size / $base * 1em;
+}
+
+@function type-size($index, $base: $em-base) {
+	@return px-to-em(nth($type-sizes, $index + 2), $base); // Make type-size(0) === $em-base
+}
+
+// Z-index
+$z-index-main:             100;
+$z-index-layout:           200;
+$z-index-noscript:         300;
+
+// Screen sizes (media queries)
+$site-min-width:           280px;
+$site-max-width:           1500px;
+
+$mq-mobile-vertical:       320px;
+$mq-mobile-vertical-l:     375px; // iPhone 6 portrait width ~= 375px
+$mq-mobile-vertical-xl:    414px; // iPhone 6s portrait width ~= 414px
+$mq-mobile-horizontal:     568px;
+$mq-tablet-vertical:       768px;
+$mq-tablet-horizontal:     1024px;
+$mq-desktop:               1280px;
+$mq-desktop-big:           1400px;
+$mq-desktop-huge:          1800px;
+$mq-desktop-super:         2200px;
+$mq-desktop-mega:          2560px;
+
+// Colors
+$color-white:              rgb(255, 255, 255);
+$color-black:              rgb(0, 0, 0);
+
+$color-grey:               rgb(100, 100, 100);
+
+$color-warning-yellow:     rgb(225, 200, 0);
+$color-warning-red:        rgb(255, 51, 52);
+
+// Font
+$font-stack-sans:          'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-stack-serif:         'Georgia', 'Times', 'Times New Roman', serif;
+$font-stack-mono:          'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;

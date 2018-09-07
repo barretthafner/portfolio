@@ -1,0 +1,47 @@
+@import '../settings';
+@import '~bourbon/app/assets/stylesheets/bourbon';
+@import '~ljd-njord/src/njord';
+
+/**
+ * Document
+ *
+ * Base document layout and setup.
+ *
+ * @author ljd
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	min-width: $site-min-width;
+	overflow: hidden;
+}
+
+html {
+	@include establish-baseline();
+
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+	font-family: $font-stack-sans;
+	text-rendering: optimizeLegibility;
+
+	color: $color-black;
+
+	background: $color-white;
+	-webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+	color: $color-white;
+
+	background: $color-grey;
+}

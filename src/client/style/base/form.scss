@@ -1,0 +1,80 @@
+@import '../settings';
+@import '~bourbon/app/assets/stylesheets/bourbon';
+@import '~ljd-njord/src/njord';
+
+/**
+ * Form elements
+ *
+ * @author ljd
+ */
+
+form,
+label,
+fieldset {
+	display: block;
+}
+
+fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+input[type='file'],
+input[type='checkbox'],
+input[type='radio'],
+label[for] {
+	cursor: pointer;
+
+	@include experimental(tap-highlight-color, rgba($color-black, 0));
+}
+
+textarea {
+	height: px-to-em($base-line-height * 10);
+	overflow: auto;
+
+	resize: none;
+}
+
+input,
+select,
+textarea {
+	box-sizing: border-box;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+
+	@include adjust-font-size-to(type-size(0));
+	font-family: $font-stack-sans;
+	color: $color-black;
+
+	background: $color-white;
+
+	&::placeholder {
+		@include adjust-font-size-to(type-size(0));
+		color: $color-black;
+	}
+
+	// IE fixes - https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear
+	&::-ms-clear,
+	&::-ms-reveal {
+		display: none !important;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+input[type] { // Needs specificity to overwrite weird base styles in normalize
+	box-sizing: border-box;
+
+	cursor: text;
+}
+
+
+button {
+	@include experimental(appearance, none);
+	display: inline-block;
+}
+

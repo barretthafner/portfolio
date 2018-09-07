@@ -1,0 +1,82 @@
+@import '../settings';
+@import '~bourbon/app/assets/stylesheets/bourbon';
+@import '~ljd-njord/src/njord';
+
+/**
+ * Typography
+ *
+ * @section Base
+ * @author ljd
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+dt,
+dd {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+dt {
+	margin: spacer-size(0) 0 0;
+
+	font-weight: bold;
+}
+
+p,
+ol,
+ul,
+blockquote,
+figure,
+figcaption,
+table {
+	display: block;
+	margin: spacer-size(0) 0 0;
+	padding: 0;
+}
+
+ul {
+	list-style-type: disc;
+}
+
+figure,
+figcaption {
+	margin: 0;
+}
+
+code {
+	@include adjust-font-size-to(type-size(0));
+	font-family: $font-stack-mono;
+}
+
+hr {
+	margin: spacer-size(0) 0 0;
+	height: 1px;
+	border: none;
+	background: $color-grey;
+}
+
+mark {
+	display: inline-block;
+	padding: 0 0.25em;
+
+	color: $color-white;
+
+	background: $color-black;
+}
+
+// Media queries
+@include media(mobileH) {
+	h1, h2 {
+		font-size: type-size(2);
+	}
+}
+
+@include media(tabletV) {
+	h1 {
+		font-size: type-size(3);
+	}
+}

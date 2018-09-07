@@ -1,0 +1,28 @@
+@import '../settings';
+@import '~bourbon/app/assets/stylesheets/bourbon';
+@import '~ljd-njord/src/njord';
+
+/**
+ * Links
+ *
+ * Standard link styling. We're using border-bottom-color for underlines, as it looks WAY better. It can be a bit annoying though, as  you need to escape it on all a tags you use in your modules.
+ *
+ * @section Base
+ * @author ljd
+ */
+
+%link {
+	outline: none;
+	@include experimental(touch-callout, none);
+	@include experimental(tap-highlight-color, rgba($color-white, 0));
+}
+
+a {
+	@extend %link;
+
+	text-decoration: underline;
+
+	@include link-active {
+		opacity: 0.8;
+	}
+}
