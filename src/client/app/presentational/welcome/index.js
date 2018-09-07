@@ -11,6 +11,12 @@ class Welcome extends PureComponent {
 		generateRandomClipFrames(200, 'random-clip-1');
 	}
 
+	componentWillUnmount() {
+		removeAnimation('random1');
+		removeAnimation('random2');
+		removeAnimation('random-clip-1');
+	}
+
 	render() {
 		return (
 			<div className="wrapper">
@@ -36,30 +42,32 @@ function getRandom (max) {
 function generateRandomKeyFrames(dis, len, name) {
 	let keyframes = '';
 	for (var i = 0; i < len; i++) {
-		keyframes += `${(i / len) * 100}%{transform: translateX(${getRandom(dis)}px)}`;
+		keyframes += `${(i / len) * 100}% {transform: translateX(${getRandom(dis)}px)}`;
 	}
 
 	let style = document.createElement('style');
 	style.innerHTML = `@keyframes ${name} { ${keyframes} }`;
+	style.id = name;
 
 	document.body.appendChild(style);
 }
+
 function generateRandomClipFrames(len, name) {
 	let keyframes = '';
 	let size = 100;
 	for (var i = 0; i < len; i++) {
-		keyframes +=
-			`${(i / len) * 100}%{
-		clip-path: inset(${getRandom(size)}% ${getRandom(size)}% ${getRandom(size)}% ${getRandom(size)}%)
-}`;
+		keyframes += `${(i / len) * 100}% { clip-path: inset(${getRandom(size)}% ${getRandom(size)}% ${getRandom(size)}% ${getRandom(size)}%) }`;
 	}
 
 	let style = document.createElement('style');
-	style.innerHTML = `@keyframes ${name} {
-${keyframes}
-}`;
+	style.innerHTML = `@keyframes ${name} { ${keyframes} }`;
+	style.id = name;
 
 	document.body.appendChild(style);
+}
+
+function removeAnimation(name) {
+	document.body.removeChild(document.getElementById(name));
 }
 
 export default Welcome;

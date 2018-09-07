@@ -13,6 +13,7 @@ import { createAction, handleActions, combineActions } from 'redux-actions';
 
 const defaultState = {
 	title: '',
+	showLoader: true
 };
 
 
@@ -20,6 +21,7 @@ const defaultState = {
 //---------------------------------------- Actions ----------------------------------------
 
 export const updateTitle = createAction('UPDATE_TITLE', title => ({ title }));
+export const showLoader = createAction('SHOW_LOADER', showLoader => ({ showLoader }));
 
 
 
@@ -29,6 +31,7 @@ export const updateTitle = createAction('UPDATE_TITLE', title => ({ title }));
 export default handleActions({
 	[combineActions(
 		updateTitle,
+		showLoader
 	)](state, { payload }) { return { ...state, ...payload }; }
 }, defaultState);
 
