@@ -1,3 +1,5 @@
+// Shamelessly modified from: https://codepen.io/TehMerow/pen/oEwPgx
+
 import React, { PureComponent } from 'react';
 // import PropTypes from 'prop-types';\
 
